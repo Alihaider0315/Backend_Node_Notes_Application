@@ -12,6 +12,10 @@ const app = express();
 // Database Connection
 
 DbCon()
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:5173'  // Replace with your frontend URL
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/auth',AuthRoutes)
